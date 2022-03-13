@@ -1,2 +1,0 @@
-IP,Hostname,OS,Processor(s),Core(s),Memory[mb],bin_pub_key
-10.10.33.26,cl-pgsql03.lv7.leaf.io,CentOS 7.9,8,1,15884,6f26ac4bd2d7662f4371f3f99f18d0f21f05537f  /usr/local/bin/getpubkey
