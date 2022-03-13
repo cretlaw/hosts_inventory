@@ -1,0 +1,18 @@
+- hosts: targets
+  vars:
+    info: "{{ ansible_default_ipv4.address }},{{ ansible_fqdn }},{{ ansible_distribution }} {{ ansible_distribution_version}},{{ansible_processor_count}},{{ ansible_processor_cores }},{{ ansible_memtotal_mb }}"
+  tasks:
+    - name: Remove file
+      file:
+        path: ./hosts_info.csv
+        state: absent
+      delegate_to: localhost
+    - name: Create file and csv headers
+      shell: touch ./hosts_info.csv && echo "IP,Hostname,OS,Processor(s),Core(s),Memory[mb],bin_pub_key" > ./hosts_info.csv
+      delegate_to: localhost
+    - name: Get SHA1 sum of /usr/local/bin/getpubkey
+      shell: sha1sum /usr/local/bin/getpubkey
+      register: sha1sum
+    - name: Save info
+      shell: echo "{{info}},{{sha1sum.stdout}}" >> ./hosts_info.csv
+      delegate_to: localhost
