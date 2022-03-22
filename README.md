@@ -1,7 +1,7 @@
 # hosts_inventory
 
 A simple and easy way to build dynamic inventory list of internal assets.
-The internal assets and information gets saved get saved to a file in this directory named `hosts_info.csv` which includes the following info for each asset.
+The internal assets and information gets saved to a file in this directory named `hosts_info.csv` which includes the following info for each asset.
 
 - IP
 - Hostname
